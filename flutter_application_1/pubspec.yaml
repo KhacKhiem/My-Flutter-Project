@@ -40,6 +40,9 @@ dependencies:
   equatable: ^2.0.3
   flutter_animation_progress_bar: ^2.0.1
   intl: ^0.17.0
+  responsive_framework: ^0.1.5
+  sizer: ^2.0.15
+  device_preview: ^1.0.0
 
 
 dev_dependencies:

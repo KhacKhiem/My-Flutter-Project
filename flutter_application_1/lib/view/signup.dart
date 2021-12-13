@@ -61,7 +61,7 @@ class SignupPage extends StatelessWidget {
                       ),
                       Container(
                         margin: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           boxShadow: [
                             BoxShadow(
                               color: Global.darkBlue,
@@ -154,9 +154,9 @@ class SignupPage extends StatelessWidget {
     final url =
         Uri.parse('https://sampleapiproject.azurewebsites.net/api/users');
     final response = await http.post(url,
-        //  headers: <String, String>{
-        //  'Content-Type': 'application/json; charset=UTF-8',
-        //   },
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
         body: jsonEncode(<String, String>{
           "username": nameController.text,
           "password": passwordController.text,

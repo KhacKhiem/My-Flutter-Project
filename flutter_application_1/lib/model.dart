@@ -1,12 +1,9 @@
-import 'package:flutter/foundation.dart';
-
-// lịch sử châm clo
 class ChlorineInjections {
-  final chlorineInjectionId;
-  final chlorineVolume;
-  final employeeName;
-  final injectionTime;
-  final processingSystemId;
+  int? chlorineInjectionId;
+  int? chlorineVolume;
+  String? employeeName;
+  String? injectionTime;
+  int? processingSystemId;
 
   ChlorineInjections(
       {this.chlorineInjectionId,
@@ -30,9 +27,9 @@ class ChlorineInjections {
 class ProcessingSystems {
   int? processingSystemId;
   String? processingSystemName;
-  final waterLevel;
-  final waterPressure;
-  final chlorineConcentration;
+  int? waterLevel;
+  int? waterPressure;
+  int? chlorineConcentration;
   int? stationId;
   List<ChlorineInjections>? chlorineInjections;
   ProcessingSystems(
@@ -60,21 +57,21 @@ class ProcessingSystems {
 }
 
 class Stations {
-  int? StationID;
-  String? StationName;
-  String? StationAddress;
+  int? stationID;
+  String? stationName;
+  String? stationAddress;
   List<ProcessingSystems>? processingSystems;
   Stations({
-    this.StationID,
-    this.StationAddress,
-    this.StationName,
+    this.stationID,
+    this.stationAddress,
+    this.stationName,
     this.processingSystems,
   });
   factory Stations.fromJson(Map<String, dynamic> json) {
     return Stations(
-        StationID: json['stationId'] as int,
-        StationName: json['stationName'] as String,
-        StationAddress: json['stationAddress'] as String,
+        stationID: json['stationId'] as int,
+        stationName: json['stationName'] as String,
+        stationAddress: json['stationAddress'] as String,
         processingSystems: json["processingSystems"] == null
             ? []
             : (json["processingSystems"] as List)
@@ -98,7 +95,7 @@ class Signup {
       this.dateOfbirth});
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['username'] = this.name;
     data['password'] = this.password;
     data['firstname'] = this.firstname;

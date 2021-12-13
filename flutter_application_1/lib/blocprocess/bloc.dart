@@ -8,14 +8,14 @@ class ApiBloc extends Bloc<Event, ApiState> {
   HttpService httpService;
 
   ApiBloc(this.httpService) : super(UnLoad()) {
-    on<fetch>(_onFetchDetails);
-    on<fetchDetailsStation>(
+    on<FetchDetail>(_onFetchDetails);
+    on<FetchDetailsStation>(
         (event, emit) => emit(LoadDetail(event.getDetail, event.getSystem)));
     on<fetchHistoryDetail>(_onFetchHistory);
   }
 
   Future<void> _onFetchDetails(Event event, Emitter<ApiState> emit) async {
-    if (event is fetch) {
+    if (event is FetchDetail) {
       emit(Loading());
       try {
         List<Stations> stations =

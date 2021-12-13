@@ -3,35 +3,33 @@ import 'package:flutter_application_1/model.dart';
 
 class Event extends Equatable {
   @override
-  // TODO: implement props
   List<Object?> get props => [];
 }
 
-class fetch extends Event {
-  var token;
-  fetch(this.token);
+class FetchDetail extends Event {
+  String token;
+  FetchDetail(this.token);
   String get authToken => token;
+  @override
   List<Object?> get props => [token];
 }
 
-class fetchDetailsStation extends Event {
-  Stations _stationDetail;
-  ProcessingSystems _system;
-  fetchDetailsStation(this._stationDetail, this._system);
-  Stations get getDetail => _stationDetail;
-  ProcessingSystems get getSystem => _system;
+class FetchDetailsStation extends Event {
+  Stations stationDetail;
+  ProcessingSystems system;
+  FetchDetailsStation(this.stationDetail, this.system);
+  Stations get getDetail => stationDetail;
+  ProcessingSystems get getSystem => system;
   @override
-  // TODO: implement props
-  List<Object?> get props => [_stationDetail, _system];
+  List<Object?> get props => [stationDetail, system];
 }
 
 class fetchHistoryDetail extends Event {
-  final ID;
+  final id;
   Stations _station;
-  fetchHistoryDetail(this.ID, this._station);
-  int get getHistory => ID;
+  fetchHistoryDetail(this.id, this._station);
+  int get getHistory => id;
   Stations get station => _station;
   @override
-  // TODO: implement props
-  List<Object?> get props => [ID, _station];
+  List<Object?> get props => [id, _station];
 }
